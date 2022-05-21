@@ -3,6 +3,9 @@ package com.jsh.erp.datasource.entities;
 import java.math.BigDecimal;
 import java.util.Date;
 
+/**
+ * 单据子表
+ */
 public class DepotItem {
     private Long id;
 

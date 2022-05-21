@@ -1,8 +1,7 @@
 package com.jsh.erp.datasource.entities;
 
-import lombok.Data;
-
 import java.math.BigDecimal;
+import lombok.Data;
 
 /**
  * Description

@@ -1,14 +1,16 @@
 package com.jsh.erp.datasource.mappers;
 
-import com.jsh.erp.datasource.entities.*;
+import com.jsh.erp.datasource.entities.DepotItem;
+import com.jsh.erp.datasource.entities.DepotItemVo4DetailByTypeAndMId;
+import com.jsh.erp.datasource.entities.DepotItemVo4MaterialAndSum;
+import com.jsh.erp.datasource.entities.DepotItemVo4WithInfoEx;
 import com.jsh.erp.datasource.vo.DepotItemStockWarningCount;
 import com.jsh.erp.datasource.vo.DepotItemVo4Stock;
 import com.jsh.erp.datasource.vo.DepotItemVoBatchNumberList;
-import org.apache.ibatis.annotations.Param;
-
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
+import org.apache.ibatis.annotations.Param;
 
 /**
  * Description

@@ -1,7 +1,5 @@
 package com.jsh.erp.utils;
 
-import java.util.UUID;
-
 /**
  * by jishenghua qq-752718920 2018-10-7 12:01:36
  */

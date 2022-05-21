@@ -2,6 +2,9 @@ package com.jsh.erp.datasource.entities;
 
 import java.math.BigDecimal;
 
+/**
+ * 商品
+ */
 public class Material {
     private Long id;
 

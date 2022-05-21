@@ -1,7 +1,5 @@
 package com.jsh.erp.utils;
 
-import org.springframework.util.StringUtils;
-import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;
@@ -13,8 +11,17 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Collections;
+import java.util.Date;
+import java.util.List;
+import java.util.Locale;
+import java.util.Random;
+import java.util.UUID;
 import java.util.regex.Pattern;
+import javax.servlet.http.HttpServletRequest;
+import org.springframework.util.StringUtils;
 
 /**
  * 工具类

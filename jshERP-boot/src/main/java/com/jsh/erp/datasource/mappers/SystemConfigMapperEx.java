@@ -1,11 +1,9 @@
 package com.jsh.erp.datasource.mappers;
 
 import com.jsh.erp.datasource.entities.SystemConfig;
-import com.jsh.erp.datasource.entities.SystemConfigExample;
-import org.apache.ibatis.annotations.Param;
-
 import java.util.Date;
 import java.util.List;
+import org.apache.ibatis.annotations.Param;
 
 public interface SystemConfigMapperEx {
 

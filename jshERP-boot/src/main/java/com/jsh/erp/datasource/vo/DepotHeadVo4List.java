@@ -1,9 +1,7 @@
 package com.jsh.erp.datasource.vo;
 
 import com.jsh.erp.datasource.entities.DepotHead;
-
 import java.math.BigDecimal;
-import java.util.Date;
 
 public class DepotHeadVo4List extends DepotHead{
 

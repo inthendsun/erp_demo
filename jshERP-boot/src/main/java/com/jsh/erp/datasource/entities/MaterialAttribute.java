@@ -1,5 +1,8 @@
 package com.jsh.erp.datasource.entities;
 
+/**
+ * 商品属性
+ */
 public class MaterialAttribute {
     private Long id;
 

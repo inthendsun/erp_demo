@@ -1,9 +1,8 @@
 package com.jsh.erp.utils;
 
-import org.springframework.util.Assert;
-
 import java.util.ArrayList;
 import java.util.List;
+import org.springframework.util.Assert;
 
 /**
  * Created by Adm on 2015/12/14.

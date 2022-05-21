@@ -1,8 +1,5 @@
 package com.jsh.erp.datasource.entities;
 
-import java.math.BigDecimal;
-import java.util.Date;
-
 public class AccountHeadVo4ListEx extends AccountHead{
 
     private String organName;

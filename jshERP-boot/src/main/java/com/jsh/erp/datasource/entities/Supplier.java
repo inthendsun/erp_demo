@@ -2,6 +2,10 @@ package com.jsh.erp.datasource.entities;
 
 import java.math.BigDecimal;
 
+/**
+ * 客户信息表：包括客户、供应商等
+ *
+ */
 public class Supplier {
     private Long id;
 

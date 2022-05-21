@@ -2,9 +2,8 @@ package com.jsh.erp.datasource.mappers;
 
 import com.jsh.erp.datasource.entities.Msg;
 import com.jsh.erp.datasource.entities.MsgEx;
-import org.apache.ibatis.annotations.Param;
-
 import java.util.List;
+import org.apache.ibatis.annotations.Param;
 
 public interface MsgMapperEx {
 

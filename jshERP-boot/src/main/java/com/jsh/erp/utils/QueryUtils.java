@@ -1,15 +1,14 @@
 package com.jsh.erp.utils;
 
+import static com.jsh.erp.utils.Constants.CURRENT_PAGE;
+import static com.jsh.erp.utils.Constants.PAGE_SIZE;
+
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import org.springframework.util.Assert;
-
 import java.util.List;
 import java.util.Map;
-
-import static com.jsh.erp.utils.Constants.CURRENT_PAGE;
-import static com.jsh.erp.utils.Constants.PAGE_SIZE;
+import org.springframework.util.Assert;
 
 /**
  * @author jishenghua qq752718920  2018-10-7 15:26:27

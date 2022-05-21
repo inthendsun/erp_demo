@@ -7,14 +7,13 @@ import com.jsh.erp.datasource.mappers.PlatformConfigMapper;
 import com.jsh.erp.datasource.mappers.PlatformConfigMapperEx;
 import com.jsh.erp.exception.JshException;
 import com.jsh.erp.utils.StringUtil;
+import java.util.List;
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import java.util.List;
 
 @Service
 public class PlatformConfigService {

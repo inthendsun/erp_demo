@@ -2,17 +2,14 @@ package com.jsh.erp.service.supplier;
 
 import com.alibaba.fastjson.JSONObject;
 import com.jsh.erp.service.ICommonQuery;
-import com.jsh.erp.service.depot.DepotResource;
-import com.jsh.erp.service.depot.DepotService;
 import com.jsh.erp.utils.Constants;
 import com.jsh.erp.utils.QueryUtils;
 import com.jsh.erp.utils.StringUtil;
-import org.springframework.stereotype.Service;
-
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import org.springframework.stereotype.Service;
 
 @Service(value = "supplier_component")
 @SupplierResource

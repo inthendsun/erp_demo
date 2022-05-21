@@ -1,34 +1,34 @@
 package com.jsh.erp.controller;
 
+import static com.jsh.erp.utils.ResponseJsonUtil.returnJson;
+
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.jsh.erp.constants.BusinessConstants;
-import com.jsh.erp.constants.ExceptionConstants;
 import com.jsh.erp.datasource.entities.Depot;
 import com.jsh.erp.datasource.entities.DepotEx;
-import com.jsh.erp.datasource.entities.MaterialCurrentStock;
 import com.jsh.erp.datasource.entities.MaterialInitialStock;
-import com.jsh.erp.exception.BusinessRunTimeException;
 import com.jsh.erp.service.depot.DepotService;
 import com.jsh.erp.service.material.MaterialService;
-import com.jsh.erp.service.systemConfig.SystemConfigService;
-import com.jsh.erp.service.user.UserService;
 import com.jsh.erp.service.userBusiness.UserBusinessService;
-import com.jsh.erp.utils.*;
+import com.jsh.erp.utils.BaseResponseInfo;
+import com.jsh.erp.utils.ErpInfo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.dao.DataAccessException;
-import org.springframework.web.bind.annotation.*;
-
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import java.io.IOException;
-import java.math.BigDecimal;
-import java.util.*;
-
-import static com.jsh.erp.utils.ResponseJsonUtil.returnJson;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @author ji sheng hua 752*718*920
@@ -37,6 +37,7 @@ import static com.jsh.erp.utils.ResponseJsonUtil.returnJson;
 @RequestMapping(value = "/depot")
 @Api(tags = {"仓库管理"})
 public class DepotController {
+
     private Logger logger = LoggerFactory.getLogger(DepotController.class);
 
     @Resource
@@ -50,19 +51,20 @@ public class DepotController {
 
     /**
      * 仓库列表
+     *
      * @param request
      * @return
      * @throws Exception
      */
     @GetMapping(value = "/getAllList")
     @ApiOperation(value = "仓库列表")
-    public BaseResponseInfo getAllList(HttpServletRequest request) throws Exception{
+    public BaseResponseInfo getAllList(HttpServletRequest request) throws Exception {
         BaseResponseInfo res = new BaseResponseInfo();
         try {
             List<Depot> depotList = depotService.getAllList();
             res.code = 200;
             res.data = depotList;
-        } catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             res.code = 500;
             res.data = "获取数据失败";
@@ -72,6 +74,7 @@ public class DepotController {
 
     /**
      * 用户对应仓库显示
+     *
      * @param type
      * @param keyId
      * @param request
@@ -79,8 +82,9 @@ public class DepotController {
      */
     @GetMapping(value = "/findUserDepot")
     @ApiOperation(value = "用户对应仓库显示")
-    public JSONArray findUserDepot(@RequestParam("UBType") String type, @RequestParam("UBKeyId") String keyId,
-                                 HttpServletRequest request) throws Exception{
+    public JSONArray findUserDepot(@RequestParam("UBType") String type,
+            @RequestParam("UBKeyId") String keyId,
+            HttpServletRequest request) throws Exception {
         JSONArray arr = new JSONArray();
         try {
             //获取权限信息
@@ -120,13 +124,14 @@ public class DepotController {
 
     /**
      * 获取当前用户拥有权限的仓库列表
+     *
      * @param request
      * @return
      * @throws Exception
      */
     @GetMapping(value = "/findDepotByCurrentUser")
     @ApiOperation(value = "获取当前用户拥有权限的仓库列表")
-    public BaseResponseInfo findDepotByCurrentUser(HttpServletRequest request) throws Exception{
+    public BaseResponseInfo findDepotByCurrentUser(HttpServletRequest request) throws Exception {
         BaseResponseInfo res = new BaseResponseInfo();
         try {
             JSONArray arr = depotService.findDepotByCurrentUser();
@@ -142,6 +147,7 @@ public class DepotController {
 
     /**
      * 更新默认仓库
+     *
      * @param object
      * @param request
      * @return
@@ -150,11 +156,11 @@ public class DepotController {
     @PostMapping(value = "/updateIsDefault")
     @ApiOperation(value = "更新默认仓库")
     public String updateIsDefault(@RequestBody JSONObject object,
-                                       HttpServletRequest request) throws Exception{
+            HttpServletRequest request) throws Exception {
         Long depotId = object.getLong("id");
         Map<String, Object> objectMap = new HashMap<>();
         int res = depotService.updateIsDefault(depotId);
-        if(res > 0) {
+        if (res > 0) {
             return returnJson(objectMap, ErpInfo.OK.name, ErpInfo.OK.code);
         } else {
             return returnJson(objectMap, ErpInfo.ERROR.name, ErpInfo.ERROR.code);
@@ -163,6 +169,7 @@ public class DepotController {
 
     /**
      * 仓库列表-带库存
+     *
      * @param mId
      * @param request
      * @return
@@ -170,19 +177,21 @@ public class DepotController {
     @GetMapping(value = "/getAllListWithStock")
     @ApiOperation(value = "仓库列表-带库存")
     public BaseResponseInfo getAllList(@RequestParam("mId") Long mId,
-                                       HttpServletRequest request) {
+            HttpServletRequest request) {
         BaseResponseInfo res = new BaseResponseInfo();
         try {
             List<Depot> list = depotService.getAllList();
             List<DepotEx> depotList = new ArrayList<DepotEx>();
-            for(Depot depot: list) {
+            for (Depot depot : list) {
                 DepotEx de = new DepotEx();
-                if(mId!=0) {
+                if (mId != 0) {
                     BigDecimal initStock = materialService.getInitStock(mId, depot.getId());
-                    BigDecimal currentStock = materialService.getCurrentStockByMaterialIdAndDepotId(mId, depot.getId());
+                    BigDecimal currentStock = materialService
+                            .getCurrentStockByMaterialIdAndDepotId(mId, depot.getId());
                     de.setInitStock(initStock);
                     de.setCurrentStock(currentStock);
-                    MaterialInitialStock materialInitialStock = materialService.getSafeStock(mId, depot.getId());
+                    MaterialInitialStock materialInitialStock = materialService
+                            .getSafeStock(mId, depot.getId());
                     de.setLowSafeStock(materialInitialStock.getLowSafeStock());
                     de.setHighSafeStock(materialInitialStock.getHighSafeStock());
                 } else {
@@ -195,7 +204,7 @@ public class DepotController {
             }
             res.code = 200;
             res.data = depotList;
-        } catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             res.code = 500;
             res.data = "获取数据失败";

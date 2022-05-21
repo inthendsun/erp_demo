@@ -2,6 +2,9 @@ package com.jsh.erp.datasource.entities;
 
 import java.math.BigDecimal;
 
+/**
+ * 商品库存
+ */
 public class MaterialCurrentStock {
     private Long id;
 

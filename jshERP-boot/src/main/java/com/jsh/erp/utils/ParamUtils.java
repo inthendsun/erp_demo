@@ -1,9 +1,9 @@
 package com.jsh.erp.utils;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.Collections;
 import java.util.Enumeration;
 import java.util.HashMap;
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * @author jishenghua qq752718920  2018-10-7 15:26:27

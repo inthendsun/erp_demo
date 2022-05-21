@@ -2,7 +2,6 @@ package com.jsh.erp.datasource.vo;
 
 
 import java.math.BigDecimal;
-import java.util.Date;
 
 public class DepotHeadVo4InDetail {
 

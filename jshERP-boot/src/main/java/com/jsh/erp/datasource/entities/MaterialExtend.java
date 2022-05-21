@@ -3,6 +3,9 @@ package com.jsh.erp.datasource.entities;
 import java.math.BigDecimal;
 import java.util.Date;
 
+/**
+ * 商品扩展
+ */
 public class MaterialExtend {
     private Long id;
 

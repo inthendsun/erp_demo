@@ -1,13 +1,15 @@
 package com.jsh.erp.utils;
 
-import javax.imageio.ImageIO;
-import javax.servlet.http.HttpServletResponse;
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.Base64;
 import java.util.Random;
+import javax.imageio.ImageIO;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * 登录验证码工具类

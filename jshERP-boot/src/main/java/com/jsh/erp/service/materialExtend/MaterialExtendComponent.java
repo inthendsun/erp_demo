@@ -2,12 +2,11 @@ package com.jsh.erp.service.materialExtend;
 
 import com.alibaba.fastjson.JSONObject;
 import com.jsh.erp.service.ICommonQuery;
-import org.springframework.stereotype.Service;
-
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import org.springframework.stereotype.Service;
 
 @Service(value = "material_extend")
 @MaterialExtendResource

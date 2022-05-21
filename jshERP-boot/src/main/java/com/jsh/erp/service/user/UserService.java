@@ -1,38 +1,48 @@
 package com.jsh.erp.service.user;
 
-import com.jsh.erp.datasource.entities.*;
-import com.jsh.erp.service.functions.FunctionService;
-import com.jsh.erp.service.redis.RedisService;
-import com.jsh.erp.service.role.RoleService;
-import org.springframework.util.StringUtils;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.jsh.erp.constants.BusinessConstants;
 import com.jsh.erp.constants.ExceptionConstants;
+import com.jsh.erp.datasource.entities.Function;
+import com.jsh.erp.datasource.entities.OrgaUserRel;
+import com.jsh.erp.datasource.entities.Role;
+import com.jsh.erp.datasource.entities.Tenant;
+import com.jsh.erp.datasource.entities.User;
+import com.jsh.erp.datasource.entities.UserBusiness;
+import com.jsh.erp.datasource.entities.UserEx;
+import com.jsh.erp.datasource.entities.UserExample;
 import com.jsh.erp.datasource.mappers.UserMapper;
 import com.jsh.erp.datasource.mappers.UserMapperEx;
 import com.jsh.erp.datasource.vo.TreeNodeEx;
 import com.jsh.erp.exception.BusinessRunTimeException;
 import com.jsh.erp.exception.JshException;
+import com.jsh.erp.service.functions.FunctionService;
 import com.jsh.erp.service.log.LogService;
 import com.jsh.erp.service.orgaUserRel.OrgaUserRelService;
+import com.jsh.erp.service.redis.RedisService;
+import com.jsh.erp.service.role.RoleService;
 import com.jsh.erp.service.tenant.TenantService;
 import com.jsh.erp.service.userBusiness.UserBusinessService;
 import com.jsh.erp.utils.ExceptionCodeConstants;
 import com.jsh.erp.utils.StringUtil;
 import com.jsh.erp.utils.Tools;
+import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.StringUtils;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
-
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import java.security.NoSuchAlgorithmException;
-import java.util.*;
 
 @Service
 public class UserService {

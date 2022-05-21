@@ -1,11 +1,9 @@
 package com.jsh.erp.datasource.mappers;
 
 import com.jsh.erp.datasource.entities.Supplier;
-import com.jsh.erp.datasource.entities.SupplierExample;
-import org.apache.ibatis.annotations.Param;
-
 import java.util.Date;
 import java.util.List;
+import org.apache.ibatis.annotations.Param;
 
 public interface SupplierMapperEx {
 

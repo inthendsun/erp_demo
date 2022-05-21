@@ -1,13 +1,11 @@
 package com.jsh.erp.datasource.mappers;
 
 import com.jsh.erp.datasource.entities.AccountItem;
-import com.jsh.erp.datasource.entities.AccountItemExample;
 import com.jsh.erp.datasource.vo.AccountItemVo4List;
-import org.apache.ibatis.annotations.Param;
-
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
+import org.apache.ibatis.annotations.Param;
 
 public interface AccountItemMapperEx {
 

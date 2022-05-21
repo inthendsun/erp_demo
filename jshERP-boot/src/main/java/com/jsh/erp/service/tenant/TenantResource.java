@@ -1,8 +1,11 @@
 package com.jsh.erp.service.tenant;
 
 import com.jsh.erp.service.ResourceInfo;
-
-import java.lang.annotation.*;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Inherited;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 
 /**
  * @author jishenghua qq752718920  2019-6-27 22:56:56

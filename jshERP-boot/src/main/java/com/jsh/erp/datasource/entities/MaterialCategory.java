@@ -2,6 +2,9 @@ package com.jsh.erp.datasource.entities;
 
 import java.util.Date;
 
+/**
+ * 商品类型
+ */
 public class MaterialCategory {
     private Long id;
 

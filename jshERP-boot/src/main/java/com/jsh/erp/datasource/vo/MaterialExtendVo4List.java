@@ -1,7 +1,6 @@
 package com.jsh.erp.datasource.vo;
 
 import com.jsh.erp.datasource.entities.MaterialExtend;
-
 import java.math.BigDecimal;
 
 public class MaterialExtendVo4List extends MaterialExtend {
